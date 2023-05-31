@@ -1,0 +1,41 @@
+import naves.*
+
+describe "test de Naves" {
+
+	// Definimos algunas naves para poder testear
+	const titan = new NaveDeCombate()
+	
+	method initialize() {
+		// ejecutamos algunos métodos sobre algunas naves para inicializar
+		// el entorno de prueba. Lo que está dentro del initialize()
+		// se ejecuta siempre para cada test dentro del describe
+		titan.prepararViaje()
+	}
+	
+	method otrosMetodos() {
+		//Se pueden definir métodos auxiliares
+		//para poder modificar estados internos de
+		//los objetos creados, llamándolo desde self.
+		titan.ponerseInvisible()
+		titan.cargarCombustible(10000)
+		
+	}
+	
+	test "test1" {
+		assert.that(true)
+	}
+	
+	test "test2" {
+		assert.notThat(false)
+	}
+	test "test3" {
+		self.otrosMetodos()
+		assert.equals("Saliendo en mision",titan.primerMensajeEmitido())
+	}
+	
+}
+
+describe "test de nave Hospial" {
+	// nuevos objetos
+	
+}
